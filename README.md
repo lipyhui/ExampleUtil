@@ -1,2 +1,2 @@
-# ExampleUtil
-Android开发常用Util
+# ExampleUtils
+Android开发常用Utils

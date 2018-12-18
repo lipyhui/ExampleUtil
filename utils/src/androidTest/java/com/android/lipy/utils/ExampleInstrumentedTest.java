@@ -1,4 +1,4 @@
-package com.android.lipy.util;
+package com.android.lipy.utils;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

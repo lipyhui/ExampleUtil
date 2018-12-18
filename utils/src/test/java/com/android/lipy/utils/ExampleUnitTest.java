@@ -1,4 +1,4 @@
-package com.android.lipy.util;
+package com.android.lipy.utils;
 
 import org.junit.Test;
 
