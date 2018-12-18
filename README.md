@@ -1,2 +1,2 @@
-# KPMould
-模板，包括MVP、dataBinding、realm、kotlin、rxjava等
+# ExampleUtil
+Android开发常用Util
