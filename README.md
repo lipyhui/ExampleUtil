@@ -1,2 +1,2 @@
-# ExampleUtils
-Android开发常用Utils
+# qUtils
+Android开发常用Utils，quick Utils
