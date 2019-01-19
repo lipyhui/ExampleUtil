@@ -4,12 +4,12 @@ package com.android.lipy.utils.operation
  * Judging parameters according to conditions
  * include [allNotNull]、 [anyNull]、 [allTrue]、 [anyTrue]、 [allFalse]、 [anyFalse]
  */
-@Suppress("UNUSED")
+@Suppress("UNUSED", "MemberVisibilityCanBePrivate")
 object ConditionalUtils {
     /**
      * Return true if all variables are not NULL
      */
-    fun <T> allNotNull(vararg values: T?): Boolean? {
+    fun <T> allNotNull(vararg values: T?): Boolean {
         return values.all { it != null }
     }
 
@@ -48,7 +48,7 @@ object ConditionalUtils {
     /**
      * Return true if any variable is NULL
      */
-    fun <T> anyNull(vararg values: T?): Boolean? {
+    fun <T> anyNull(vararg values: T?): Boolean {
         return values.any { it == null }
     }
 
@@ -69,7 +69,7 @@ object ConditionalUtils {
     /**
      * Return true if all variables are true
      */
-    fun allTrue(vararg values: Boolean?): Boolean? {
+    fun allTrue(vararg values: Boolean?): Boolean {
         return values.all { it == true }
     }
 
@@ -90,7 +90,7 @@ object ConditionalUtils {
     /**
      * Return true if any variable is true
      */
-    fun <T> anyTrue(vararg values: T?): Boolean? {
+    fun <T> anyTrue(vararg values: T?): Boolean {
         return values.any { it == true }
     }
 
@@ -111,7 +111,7 @@ object ConditionalUtils {
     /**
      * Return true if all variables are false
      */
-    fun allFalse(vararg values: Boolean?): Boolean? {
+    fun allFalse(vararg values: Boolean?): Boolean {
         return values.all { it == false }
     }
 
@@ -132,7 +132,7 @@ object ConditionalUtils {
     /**
      * Return true if any variable is false
      */
-    fun <T> anyFalse(vararg values: T?): Boolean? {
+    fun <T> anyFalse(vararg values: T?): Boolean {
         return values.any { it == false }
     }
 
