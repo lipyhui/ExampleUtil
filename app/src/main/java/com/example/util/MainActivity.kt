@@ -2,13 +2,11 @@ package com.example.util
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import com.android.lipy.elog.ELog
 
-import com.android.lipy.utils.operation.ConditionalUtil
+import com.android.lipy.utils.operation.ConditionalUtils
 import com.android.lipy.utils.file.FileUtils
-import com.android.lipy.utils.operation.ConditionalUtil.allNotNull
-import com.example.util.JavaTest.conditionalUtilTest
+import com.android.lipy.utils.operation.ConditionalUtils.allNotNull
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         }
         ELog.e("############### ifAllNotNull $ifAll")
 
-        val ifAny = ConditionalUtil.anyNull("sss", "bb", null, "ss", "Ff", "sss", "sss", "dddd", "fffff") {
+        val ifAny = ConditionalUtils.anyNull("sss", "bb", null, "ss", "Ff", "sss", "sss", "dddd", "fffff") {
             ELog.e("############### anyNull any null value")
             return@anyNull "@@@ if any value is null ??????"
         }

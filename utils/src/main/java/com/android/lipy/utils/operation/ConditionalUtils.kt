@@ -5,7 +5,7 @@ package com.android.lipy.utils.operation
  * include [allNotNull]、 [anyNull]、 [allTrue]、 [anyTrue]、 [allFalse]、 [anyFalse]
  */
 @Suppress("UNUSED")
-object ConditionalUtil {
+object ConditionalUtils {
     /**
      * Return true if all variables are not NULL
      */
