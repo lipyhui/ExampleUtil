@@ -16,15 +16,33 @@ object ConditionalUtils {
     /**
      * Call action if all variables are not NULL
      */
-    fun <T, R> allNotNull(vararg values: T?, action: (Array<out T?>) -> R?): R? {
-        return if (values.all { it != null }) return action(values) else null
+    fun <T, R> allNotNull(vararg values: T?, action: (List<T>) -> R?): R? {
+        val list = ArrayList<T>()
+        values.forEach {
+            if (it == null) {
+                return null
+            }
+
+            list.add(it)
+        }
+
+        return action(list)
     }
 
     /**
      * Call action if all variables are not NULL, Prevent Java action recognition failure
      */
-    fun <T, R> allNotNull(action: (Array<out T?>) -> R?, vararg values: T?): R? {
-        return if (values.all { it != null }) return action(values) else null
+    fun <T, R> allNotNull(action: (List<T>) -> R?, vararg values: T?): R? {
+        val list = ArrayList<T>()
+        values.forEach {
+            if (it == null) {
+                return null
+            }
+
+            list.add(it)
+        }
+
+        return action(list)
     }
 
     /**
