@@ -968,6 +968,8 @@ object FileUtils {
     fun getDirName(filePath: String?): String {
         filePath?.takeUnless { isSpace(filePath) }
                 ?.let {
+                    if (isDir(filePath)) return filePath
+
                     val lastSep = filePath.lastIndexOf(File.separator)
                     return if (lastSep == -1) "" else filePath.substring(0, lastSep + 1)
                 }
