@@ -45,12 +45,13 @@ class MainActivity : AppCompatActivity() {
     private fun fileUtilTest() {
         ELog.e("------------------> fileUtilTest <----------------------")
 
-        val mtkPath = "/sdcard/mtklog/"
-        val mtkStpFilePath = "/sdcard/mtklog/stp_dump/test.txt"
-        val mtkPathNo = "/sdcard/mtklog/ss"
+        val mtkPath = "/sdcard/mtklog"
+        val mtkStpFilePath = "/sdcard/mtklog/netlog/file_tree.txt"
+        val mtkPathNo = "/sdcard/mtklog/mobilelog/file_tree.txt"
         ELog.e("------------------> isExists ${FileUtils.isExists(filePath = null)}")
-        ELog.e("------------------> rename ${FileUtils.rename(File(mtkStpFilePath),"stp_dump_back")}")
+        ELog.e("------------------> rename ${FileUtils.rename(File(mtkStpFilePath), "stp_dump_back")}")
         ELog.e("------------------> moveDir ${FileUtils.moveDir(mtkPathNo, "/sdcard/mtklog/ss_back/ss3")}")
         ELog.e("------------------> moveFile ${FileUtils.moveFile(mtkStpFilePath, "/sdcard/mtklog/ss_back/test_back.txt")}")
+        ELog.e("------------------> getFileExtension ${FileUtils.getFileExtension(mtkPathNo)}")
     }
 }
