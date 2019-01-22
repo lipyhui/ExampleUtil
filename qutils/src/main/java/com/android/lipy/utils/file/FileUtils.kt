@@ -1212,12 +1212,12 @@ object FileUtils {
 
         bytes?.takeIf { bytes.isNotEmpty() }
                 ?.forEach { strBuff.append(byte2Hex(it)) }
-                ?.let { return strBuff.toString() }
+                ?.let { return strBuff.toString().toUpperCase() }
 
         return ""
     }
 
     private fun byte2Hex(byte: Byte): String {
-        return "${((byte.toInt() shr 4) and 0x0F).toString(16)}${(byte and 0x0F).toString(16)} "
+        return "${((byte.toInt() shr 4) and 0x0F).toString(16)}${(byte and 0x0F).toString(16)}"
     }
 }
