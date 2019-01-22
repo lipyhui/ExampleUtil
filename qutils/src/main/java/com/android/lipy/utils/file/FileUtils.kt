@@ -372,98 +372,6 @@ object FileUtils {
         return copyOrMoveFile(srcFile, destFile, listener, true)
     }
 
-    private fun copyOrMoveDir(srcDir: File?, destDir: File?, isMove: Boolean): Boolean {
-        return copyOrMoveDir(srcDir, destDir, isMove, object : OnReplaceListener {
-            override fun onReplace(): Boolean {
-                return true
-            }
-        })
-    }
-
-    private fun copyOrMoveDir(srcDir: File?, destDir: File?, isMove: Boolean,
-                              listener: OnReplaceListener?): Boolean {
-        ConditionalUtils.allNotNull(srcDir, destDir) { return@allNotNull it }
-                ?.takeIf { it[0].exists() && it[0].isDirectory }
-                ?.takeUnless { (it[1].path + File.separator).contains(it[0].path + File.separator) }
-                ?.let {
-                    if (it[1].exists()) {
-                        if (listener == null || listener.onReplace()) {// require delete the old directory
-                            if (!deleteAllInDir(it[1])) {// unsuccessfully delete then return false
-                                return false
-                            }
-                        } else {
-                            return true
-                        }
-                    }
-
-                    it
-                }
-                ?.takeIf { createDir(it[1]) }
-                ?.let {
-                    val destPath = it[1].path + File.separator
-
-                    it[0].listFiles()?.let { files ->
-                        files.forEach { file ->
-                            val oneDestFile = File(destPath + file.name)
-                            if (file.isFile) {
-                                if (!copyOrMoveFile(file, oneDestFile, listener, isMove))
-                                    return false
-                            } else if (file.isDirectory) {
-                                if (!copyOrMoveDir(file, oneDestFile, isMove, listener))
-                                    return false
-                            }
-                        }
-                    }
-
-                    return !isMove || deleteDir(it[0])
-                }
-
-        return false
-    }
-
-    private fun copyOrMoveFile(srcFile: File?,
-                               destFile: File?,
-                               isMove: Boolean): Boolean {
-        return copyOrMoveFile(srcFile, destFile, object : OnReplaceListener {
-            override fun onReplace(): Boolean {
-                return true
-            }
-        }, isMove)
-    }
-
-    private fun copyOrMoveFile(srcFile: File?,
-                               destFile: File?,
-                               listener: OnReplaceListener?,
-                               isMove: Boolean): Boolean {
-        ConditionalUtils.allNotNull(srcFile, destFile) { return@allNotNull it }
-                ?.takeUnless { it[0] == it[1] }
-                ?.takeIf { it[0].exists() && it[0].isFile }
-                ?.let {
-                    if (it[1].exists()) {
-                        if (listener == null || listener.onReplace()) {// require delete the old file
-                            if (!destFile!!.delete()) {// unsuccessfully delete then return false
-                                return false
-                            }
-                        } else {
-                            return true
-                        }
-                    }
-
-                    it
-                }
-                ?.takeIf { createDir(it[1].parentFile) }
-                ?.let {
-                    return try {
-                        writeFileFromIS(it[1], FileInputStream(it[0])) && !(isMove && !deleteFile(it[0]))
-                    } catch (e: FileNotFoundException) {
-                        e.printStackTrace()
-                        false
-                    }
-                }
-
-        return false
-    }
-
     /**
      * Delete the directory.
      *
@@ -1152,18 +1060,96 @@ object FileUtils {
         return ""
     }
 
-    private fun bytes2HexString(bytes: ByteArray?): String {
-        val strBuff = StringBuffer()
-
-        bytes?.takeIf { bytes.isNotEmpty() }
-                ?.forEach { strBuff.append(byte2Hex(it)) }
-                ?.let { return strBuff.toString() }
-
-        return ""
+    private fun copyOrMoveDir(srcDir: File?, destDir: File?, isMove: Boolean): Boolean {
+        return copyOrMoveDir(srcDir, destDir, isMove, object : OnReplaceListener {
+            override fun onReplace(): Boolean {
+                return true
+            }
+        })
     }
 
-    fun byte2Hex(byte: Byte): String {
-        return "${((byte.toInt() shr 4) and 0x0F).toString(16)}${(byte and 0x0F).toString(16)} "
+    private fun copyOrMoveDir(srcDir: File?, destDir: File?, isMove: Boolean,
+                              listener: OnReplaceListener?): Boolean {
+        ConditionalUtils.allNotNull(srcDir, destDir) { return@allNotNull it }
+                ?.takeIf { it[0].exists() && it[0].isDirectory }
+                ?.takeUnless { (it[1].path + File.separator).contains(it[0].path + File.separator) }
+                ?.let {
+                    if (it[1].exists()) {
+                        if (listener == null || listener.onReplace()) {// require delete the old directory
+                            if (!deleteAllInDir(it[1])) {// unsuccessfully delete then return false
+                                return false
+                            }
+                        } else {
+                            return true
+                        }
+                    }
+
+                    it
+                }
+                ?.takeIf { createDir(it[1]) }
+                ?.let {
+                    val destPath = it[1].path + File.separator
+
+                    it[0].listFiles()?.let { files ->
+                        files.forEach { file ->
+                            val oneDestFile = File(destPath + file.name)
+                            if (file.isFile) {
+                                if (!copyOrMoveFile(file, oneDestFile, listener, isMove))
+                                    return false
+                            } else if (file.isDirectory) {
+                                if (!copyOrMoveDir(file, oneDestFile, isMove, listener))
+                                    return false
+                            }
+                        }
+                    }
+
+                    return !isMove || deleteDir(it[0])
+                }
+
+        return false
+    }
+
+    private fun copyOrMoveFile(srcFile: File?,
+                               destFile: File?,
+                               isMove: Boolean): Boolean {
+        return copyOrMoveFile(srcFile, destFile, object : OnReplaceListener {
+            override fun onReplace(): Boolean {
+                return true
+            }
+        }, isMove)
+    }
+
+    private fun copyOrMoveFile(srcFile: File?,
+                               destFile: File?,
+                               listener: OnReplaceListener?,
+                               isMove: Boolean): Boolean {
+        ConditionalUtils.allNotNull(srcFile, destFile) { return@allNotNull it }
+                ?.takeUnless { it[0] == it[1] }
+                ?.takeIf { it[0].exists() && it[0].isFile }
+                ?.let {
+                    if (it[1].exists()) {
+                        if (listener == null || listener.onReplace()) {// require delete the old file
+                            if (!destFile!!.delete()) {// unsuccessfully delete then return false
+                                return false
+                            }
+                        } else {
+                            return true
+                        }
+                    }
+
+                    it
+                }
+                ?.takeIf { createDir(it[1].parentFile) }
+                ?.let {
+                    return try {
+                        writeFileFromIS(it[1], FileInputStream(it[0])) && !(isMove && !deleteFile(it[0]))
+                    } catch (e: FileNotFoundException) {
+                        e.printStackTrace()
+                        false
+                    }
+                }
+
+        return false
     }
 
     private fun byte2FitMemorySize(byteNum: Long): String {
@@ -1219,5 +1205,19 @@ object FileUtils {
             }
 
         }
+    }
+
+    private fun bytes2HexString(bytes: ByteArray?): String {
+        val strBuff = StringBuffer()
+
+        bytes?.takeIf { bytes.isNotEmpty() }
+                ?.forEach { strBuff.append(byte2Hex(it)) }
+                ?.let { return strBuff.toString() }
+
+        return ""
+    }
+
+    private fun byte2Hex(byte: Byte): String {
+        return "${((byte.toInt() shr 4) and 0x0F).toString(16)}${(byte and 0x0F).toString(16)} "
     }
 }
