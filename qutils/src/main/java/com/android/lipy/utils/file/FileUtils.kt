@@ -53,7 +53,7 @@ object FileUtils {
      * Rename the file.
      *
      * @param filePath The path of file.
-     * @param newName  The new name of file.
+     * @param newName  The new name of file. eg: newName.txt
      * @return `true`: success<br></br>`false`: fail
      */
     fun rename(filePath: String?, newName: String): Boolean {
@@ -64,7 +64,7 @@ object FileUtils {
      * Rename the file.
      *
      * @param file    The file.
-     * @param newName The new name of file.
+     * @param newName The new name of file. eg: newName.txt
      * @return `true`: success<br></br>`false`: fail
      */
     fun rename(file: File?, newName: String): Boolean {
