@@ -399,23 +399,23 @@ object FileUtils {
                     it
                 }
                 ?.takeIf { createDir(it[1]) }
-                ?.let { it ->
-                    it[0].listFiles()?.let {
-                        val destPath = it[1].path + File.separator
+                ?.let {
+                    val destPath = it[1].path + File.separator
 
-                        it.forEach { file ->
+                    it[0].listFiles()?.let { files ->
+                        files.forEach { file ->
                             val oneDestFile = File(destPath + file.name)
                             if (file.isFile) {
-                                if (!copyOrMoveFile(file, oneDestFile, listener, isMove)) return false
+                                if (!copyOrMoveFile(file, oneDestFile, listener, isMove))
+                                    return false
                             } else if (file.isDirectory) {
-                                if (!copyOrMoveDir(file, oneDestFile, isMove, listener)) return false
+                                if (!copyOrMoveDir(file, oneDestFile, isMove, listener))
+                                    return false
                             }
                         }
-
-                        return !isMove || deleteDir(it[0])
                     }
 
-                    return false
+                    return !isMove || deleteDir(it[0])
                 }
 
         return false
@@ -511,12 +511,14 @@ object FileUtils {
                 ?.takeIf { it.size >= 0 }
                 ?.forEach {
                     if (it.isFile) {
-                        if (!it.delete()) return false
+                        if (!it.delete())
+                            return false
                     } else if (it.isDirectory) {
-                        if (!deleteDir(it)) return false
+                        if (!deleteDir(it))
+                            return false
                     }
                 }
-                ?.let { dir.delete() }
+                ?.let { return dir.delete() }
 
         return false
     }

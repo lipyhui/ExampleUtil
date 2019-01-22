@@ -50,5 +50,6 @@ class MainActivity : AppCompatActivity() {
         val mtkPathNo = "/sdcard/mtklog/ss"
         ELog.e("------------------> isExists ${FileUtils.isExists(filePath = null)}")
         ELog.e("------------------> rename ${FileUtils.rename(File(mtkStpFilePath),"stp_dump_back")}")
+        ELog.e("------------------> moveDir ${FileUtils.moveDir(mtkPathNo, "/sdcard/mtklog/ss_back/ss3")}")
     }
 }
