@@ -2,12 +2,12 @@
 &emsp;&emsp;ConditionalUtils是一个逻辑处理工具。该工具的目的是提供Kotlin逻辑方法的扩展，优化代码可阅读性，包括一些与、或逻辑方法。
 
 # 目录
-* [allNotNull --> 判断所有条件不为空](#allNotNull)
-* [anyNull --> 判断是否有条件为空](#anyNull)
-* [allTrue --> 判断所有条件为真](#allTrue)
-* [anyTrue --> 判断是否有条件为真](#anyTrue)
-* [allFalse --> 判断所有条件为假](#allFalse)
-* [anyFalse --> 判断是否有条件为假](#anyFalse)
+- [allNotNull --> 判断所有条件不为空](#allNotNull)
+- [anyNull --> 判断是否有条件为空](#anyNull)
+- [allTrue --> 判断所有条件为真](#allTrue)
+- [anyTrue --> 判断是否有条件为真](#anyTrue)
+- [allFalse --> 判断所有条件为假](#allFalse)
+- [anyFalse --> 判断是否有条件为假](#anyFalse)
 
 ## allNotNull
 &emsp;&emsp;所有条件不为空则返回true，或者调用回调方法。
