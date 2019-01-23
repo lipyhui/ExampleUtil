@@ -69,84 +69,84 @@ object ConditionalUtils {
     /**
      * Return true if all variables are true
      */
-    fun allTrue(vararg values: Boolean?): Boolean {
-        return values.all { it == true }
+    fun allTrue(vararg values: Boolean): Boolean {
+        return values.all { it }
     }
 
     /**
      * Call action if all variables are true
      */
-    fun <T, R> allTrue(vararg values: T?, action: () -> R?): R? {
-        return if (values.any { it == true }) action() else null
+    fun <R> allTrue(vararg values: Boolean, action: () -> R?): R? {
+        return if (values.any { it }) action() else null
     }
 
     /**
      * Call action if all variables are true, Prevent Java action recognition failure
      */
-    fun <T, R> allTrue(action: () -> R?, vararg values: T?): R? {
-        return if (values.any { it == true }) action() else null
+    fun <R> allTrue(action: () -> R?, vararg values: Boolean): R? {
+        return if (values.any { it }) action() else null
     }
 
     /**
      * Return true if any variable is true
      */
-    fun <T> anyTrue(vararg values: T?): Boolean {
-        return values.any { it == true }
+    fun anyTrue(vararg values: Boolean): Boolean {
+        return values.any { it }
     }
 
     /**
      * Call action if any variable is true
      */
-    fun <T, R> anyTrue(vararg values: T?, action: () -> R?): R? {
-        return if (values.any { it == true }) action() else null
+    fun <R> anyTrue(vararg values: Boolean, action: () -> R?): R? {
+        return if (values.any { it }) action() else null
     }
 
     /**
      * Call action if any variable is true, Prevent Java action recognition failure
      */
-    fun <T, R> anyTrue(action: () -> R?, vararg values: T?): R? {
-        return if (values.any { it == true }) action() else null
+    fun <R> anyTrue(action: () -> R?, vararg values: Boolean): R? {
+        return if (values.any { it }) action() else null
     }
 
     /**
      * Return true if all variables are false
      */
-    fun allFalse(vararg values: Boolean?): Boolean {
-        return values.all { it == false }
+    fun allFalse(vararg values: Boolean): Boolean {
+        return values.all { !it }
     }
 
     /**
      * Call action if all variables are false
      */
-    fun <T, R> allFalse(vararg values: T?, action: () -> R?): R? {
-        return if (values.any { it == false }) action() else null
+    fun <R> allFalse(vararg values: Boolean, action: () -> R?): R? {
+        return if (values.any { !it }) action() else null
     }
 
     /**
      * Call action if all variables are false, Prevent Java action recognition failure
      */
-    fun <T, R> allFalse(action: () -> R?, vararg values: T?): R? {
-        return if (values.any { it == false }) action() else null
+    fun <R> allFalse(action: () -> R?, vararg values: Boolean): R? {
+        return if (values.any { !it }) action() else null
     }
 
     /**
      * Return true if any variable is false
      */
-    fun <T> anyFalse(vararg values: T?): Boolean {
-        return values.any { it == false }
+    fun anyFalse(vararg values: Boolean): Boolean {
+        return values.any { !it }
     }
 
     /**
      * Call action if any variable is false
      */
-    fun <T, R> anyFalse(vararg values: T?, action: () -> R?): R? {
-        return if (values.any { it == false }) action() else null
+    fun <R> anyFalse(vararg values: Boolean, action: () -> R?): R? {
+        return if (values.any { !it }) action() else null
     }
 
     /**
      * Call action if any variable is false, Prevent Java action recognition failure
      */
-    fun <T, R> anyFalse(action: () -> R?, vararg values: T?): R? {
-        return if (values.any { it == false }) action() else null
+    fun <R> anyFalse(action: () -> R?, vararg values: Boolean): R? {
+        return if (values.any { !it }) action() else null
     }
 }
