@@ -16,6 +16,18 @@
 - [delete --> 删除文件或文件夹](#delete)
 - [deleteDir --> 删除文件夹](#deleteDir)
 - [deleteFile --> 删除文件](#deleteFile)
+- [deleteAllInDir --> 删除文件夹下所有文件、文件夹](#deleteAllInDir)
+- [deleteFilesInDir --> 删除文件夹下所有文件](#deleteFilesInDir)
+- [deleteFilesInDirWithFilter --> 根据过滤条件删除文件夹下文件、文件夹](#deleteFilesInDirWithFilter)
+- [listFilesInDir --> 获取文件夹下文件](#listFilesInDir)
+- [listFilesInDirWithFilter --> 根据过滤条件获取文件夹下文件](#listFilesInDirWithFilter)
+- [getFileLastModified --> 获取文件修改时间](#getFileLastModified)
+- [getFileCharsetSimple --> 获取文件编码格式](#getFileCharsetSimple)
+- [getFileLines --> 获取文件行数](#getFileLines)
+- [getDirSize、getDirLength --> 获取文件夹大小](#getDirSize、getDirLength)
+- [getFileSize、getFileLength --> 获取文件大小](#getFileSize、getFileLength)
+- [getFileMD5ToString、getFileMD5 --> 获取文件MD5值](#getFileMD5ToString、getFileMD5)
+- [listFilesInDirWithFilter --> 根据过滤条件获取文件夹下文件](#listFilesInDirWithFilter)
 
 ## getFileByPath
 &emsp;&emsp;把文件路径转换为文件，文件路径为空则返回空。
@@ -140,4 +152,106 @@ fun deleteFile(dir: File?): Boolean
 ```
 fun deleteFile(dirPath: String?): Boolean
 fun deleteFile(dir: File?): Boolean
+```
+
+## deleteAllInDir
+&emsp;&emsp;删除文件夹下所有文件、文件夹，删除成功则返回 true。
+```
+fun deleteAllInDir(dirPath: String?): Boolean
+fun deleteAllInDir(dir: File?): Boolean
+```
+
+## deleteFilesInDir
+&emsp;&emsp;删除文件夹下所有文件，删除成功则返回 true。
+```
+fun deleteFilesInDir(dirPath: String?): Boolean
+fun deleteFilesInDir(dir: File?): Boolean
+```
+
+## deleteFilesInDirWithFilter
+&emsp;&emsp;根据过滤条件删除文件夹下文件、文件夹，删除成功则返回 true。
+```
+fun deleteFilesInDirWithFilter(dirPath: String?, filter: FileFilter): Boolean
+fun deleteFilesInDirWithFilter(dir: File?, filter: FileFilter): Boolean
+```
+
+## listFilesInDir
+&emsp;&emsp;获取文件夹下文件，获取成功则返回文件列表。
+```
+//不获取子目录下的文件
+fun listFilesInDir(dirPath: String?): List<File>?
+fun listFilesInDir(dir: File): List<File>?
+
+//isRecursive 为 true 则获取子目录下文件
+fun listFilesInDir(dirPath: String?, isRecursive: Boolean): List<File>?
+fun listFilesInDir(dir: File?, isRecursive: Boolean): List<File>?
+```
+
+## listFilesInDirWithFilter
+&emsp;&emsp;根据过滤条件获取文件夹下文件，获取成功则返回文件列表。
+```
+//不获取子目录下的文件
+fun listFilesInDirWithFilter(dirPath: String?, filter: FileFilter): List<File>?
+fun listFilesInDirWithFilter(dir: File?, filter: FileFilter): List<File>?
+
+//isRecursive 为 true 则获取子目录下文件
+fun listFilesInDirWithFilter(dirPath: String?, filter: FileFilter, isRecursive: Boolean): List<File>?
+fun listFilesInDirWithFilter(dir: File?, filter: FileFilter, isRecursive: Boolean): List<File>?
+```
+
+## getFileLastModified
+&emsp;&emsp;获取文件修改时间，获取失败则返回-1。
+```
+fun getFileLastModified(filePath: String): Long
+fun getFileLastModified(file: File?): Long
+```
+
+## getFileCharsetSimple
+&emsp;&emsp;获取文件修改时间，获取成功则返回编码格式。
+```
+fun getFileCharsetSimple(filePath: String?): String?
+fun getFileCharsetSimple(file: File?): String?
+```
+
+## getFileLines
+&emsp;&emsp;获取文件行数，获取失败则返回-1。
+```
+fun getFileLines(filePath: String?): Int
+fun getFileLines(file: File?): Int
+```
+
+## getDirSize、getDirLength
+&emsp;&emsp;获取文件夹大小。
+```
+//返回可读性强的字符串，获取失败返回空字符串
+fun getDirSize(dirPath: String?): String
+fun getDirSize(dir: File?): String
+
+//返回文件夹大小，获取失败返回 -1
+fun getDirLength(dirPath: String): Long
+fun getDirLength(dir: File?): Long
+```
+
+## getFileSize、getFileLength
+&emsp;&emsp;获取文件大小。
+```
+//返回可读性强的字符串，获取失败返回空字符串
+fun getFileSize(filePath: String?): String
+fun getFileSize(file: File?): String
+
+//返回文件大小，获取失败返回 -1
+fun getFileLength(filePath: String?): Long
+fun getFileLength(file: File?): Long
+```
+
+## getFileMD5ToString、getFileMD5
+&emsp;&emsp;获取文件大小。
+```
+//返回可读性强的字符串，获取失败返回空字符串
+fun getFileMD5ToString(filePath: String?): String
+fun getFileMD5ToString(file: File?): String
+
+//返回文件大小，获取失败返回 -1
+fun getFileLength(filePath: String?): Long
+fun getFileLength(file: File?): Long
 ```

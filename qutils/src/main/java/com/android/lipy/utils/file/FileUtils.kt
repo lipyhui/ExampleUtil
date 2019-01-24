@@ -913,7 +913,7 @@ object FileUtils {
      * @return the md5 of file
      */
     fun getFileMD5(file: File?): ByteArray? {
-        file.let {
+        file?.let {
             var dis: DigestInputStream? = null
             try {
                 var md = MessageDigest.getInstance("MD5")
