@@ -24,11 +24,11 @@
 - [getFileLastModified --> 获取文件修改时间](#getFileLastModified)
 - [getFileCharsetSimple --> 获取文件编码格式](#getFileCharsetSimple)
 - [getFileLines --> 获取文件行数](#getFileLines)
-- [getDirSize、getDirLength --> 获取文件夹大小](#getDirSize、getDirLength)
-- [getFileSize、getFileLength --> 获取文件大小](#getFileSize、getFileLength)
-- [getFileMD5ToString、getFileMD5 --> 获取文件MD5值](#getFileMD5ToString、getFileMD5)
+- [getDirSize、getDirLength --> 获取文件夹大小](#getDirSizegetDirLength)
+- [getFileSize、getFileLength --> 获取文件大小](#getFileSizegetFileLength)
+- [getFileMD5ToString、getFileMD5 --> 获取文件MD5值](#getFileMD5ToStringgetFileMD5)
 - [getDirPath --> 获取文件夹路径](#getDirPath)
-- [getFileName、getFileNameNoExtension --> 获取文件名](#getFileName、getFileNameNoExtension)
+- [getFileName、getFileNameNoExtension --> 获取文件名](#getFileNamegetFileNameNoExtension)
 - [getFileExtension --> 获取文件后缀](#getFileExtension)
 
 ## getFileByPath
