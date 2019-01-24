@@ -948,8 +948,8 @@ object FileUtils {
      * @param file The file.
      * @return the file's path of directory
      */
-    fun getDirName(file: File?): String {
-        return if (file == null) "" else getDirName(file.absolutePath)
+    fun getDirPath(file: File?): String {
+        return if (file == null) "" else getDirPath(file.absolutePath)
     }
 
     /**
@@ -958,7 +958,7 @@ object FileUtils {
      * @param filePath The path of file.
      * @return the file's path of directory
      */
-    fun getDirName(filePath: String?): String {
+    fun getDirPath(filePath: String?): String {
         filePath?.takeUnless { isSpace(filePath) }
                 ?.let {
                     if (isDir(filePath)) return filePath
