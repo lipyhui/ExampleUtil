@@ -498,8 +498,7 @@ object FileUtils {
      * @param filter  The filter.
      * @return `true`: success<br></br>`false`: fail
      */
-    fun deleteFilesInDirWithFilter(dirPath: String?,
-                                   filter: FileFilter): Boolean {
+    fun deleteFilesInDirWithFilter(dirPath: String?, filter: FileFilter): Boolean {
         return deleteFilesInDirWithFilter(getFileByPath(dirPath), filter)
     }
 
@@ -592,8 +591,7 @@ object FileUtils {
      * @param filter  The filter.
      * @return the files that satisfy the filter in directory
      */
-    fun listFilesInDirWithFilter(dirPath: String?,
-                                 filter: FileFilter): List<File>? {
+    fun listFilesInDirWithFilter(dirPath: String?, filter: FileFilter): List<File>? {
         return listFilesInDirWithFilter(getFileByPath(dirPath), filter, false)
     }
 
@@ -606,8 +604,7 @@ object FileUtils {
      * @param filter The filter.
      * @return the files that satisfy the filter in directory
      */
-    fun listFilesInDirWithFilter(dir: File?,
-                                 filter: FileFilter): List<File>? {
+    fun listFilesInDirWithFilter(dir: File?, filter: FileFilter): List<File>? {
         return listFilesInDirWithFilter(dir, filter, false)
     }
 
@@ -619,9 +616,7 @@ object FileUtils {
      * @param isRecursive True to traverse subdirectories, false otherwise.
      * @return the files that satisfy the filter in directory
      */
-    fun listFilesInDirWithFilter(dirPath: String?,
-                                 filter: FileFilter,
-                                 isRecursive: Boolean): List<File>? {
+    fun listFilesInDirWithFilter(dirPath: String?, filter: FileFilter, isRecursive: Boolean): List<File>? {
         return listFilesInDirWithFilter(getFileByPath(dirPath), filter, isRecursive)
     }
 
@@ -633,9 +628,7 @@ object FileUtils {
      * @param isRecursive True to traverse subdirectories, false otherwise.
      * @return the files that satisfy the filter in directory
      */
-    fun listFilesInDirWithFilter(dir: File?,
-                                 filter: FileFilter,
-                                 isRecursive: Boolean): List<File>? {
+    fun listFilesInDirWithFilter(dir: File?, filter: FileFilter, isRecursive: Boolean): List<File>? {
         val list = ArrayList<File>()
 
         return dir?.takeIf { isDir(dir) }
@@ -1070,8 +1063,7 @@ object FileUtils {
         })
     }
 
-    private fun copyOrMoveDir(srcDir: File?, destDir: File?, isMove: Boolean,
-                              listener: OnReplaceListener?): Boolean {
+    private fun copyOrMoveDir(srcDir: File?, destDir: File?, isMove: Boolean, listener: OnReplaceListener?): Boolean {
         ConditionalUtils.allNotNull(srcDir, destDir) { return@allNotNull it }
                 ?.takeIf { it[0].exists() && it[0].isDirectory }
                 ?.takeUnless { (it[1].path + File.separator).contains(it[0].path + File.separator) }
@@ -1111,9 +1103,7 @@ object FileUtils {
         return false
     }
 
-    private fun copyOrMoveFile(srcFile: File?,
-                               destFile: File?,
-                               isMove: Boolean): Boolean {
+    private fun copyOrMoveFile(srcFile: File?, destFile: File?, isMove: Boolean): Boolean {
         return copyOrMoveFile(srcFile, destFile, object : OnReplaceListener {
             override fun onReplace(): Boolean {
                 return true
@@ -1121,10 +1111,7 @@ object FileUtils {
         }, isMove)
     }
 
-    private fun copyOrMoveFile(srcFile: File?,
-                               destFile: File?,
-                               listener: OnReplaceListener?,
-                               isMove: Boolean): Boolean {
+    private fun copyOrMoveFile(srcFile: File?, destFile: File?, listener: OnReplaceListener?, isMove: Boolean): Boolean {
         ConditionalUtils.allNotNull(srcFile, destFile) { return@allNotNull it }
                 ?.takeUnless { it[0] == it[1] }
                 ?.takeIf { it[0].exists() && it[0].isFile }
