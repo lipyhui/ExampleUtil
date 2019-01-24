@@ -3,8 +3,6 @@ package com.example.util;
 import com.android.lipy.elog.ELog;
 import com.android.lipy.utils.operation.ConditionalUtils;
 
-import java.io.File;
-
 public class JavaTest {
     /**
      * 逻辑运算ConditionalUtils演示代码
