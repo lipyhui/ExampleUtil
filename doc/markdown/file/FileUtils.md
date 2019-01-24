@@ -27,7 +27,9 @@
 - [getDirSize、getDirLength --> 获取文件夹大小](#getDirSize、getDirLength)
 - [getFileSize、getFileLength --> 获取文件大小](#getFileSize、getFileLength)
 - [getFileMD5ToString、getFileMD5 --> 获取文件MD5值](#getFileMD5ToString、getFileMD5)
-- [listFilesInDirWithFilter --> 根据过滤条件获取文件夹下文件](#listFilesInDirWithFilter)
+- [getDirPath --> 获取文件夹路径](#getDirPath)
+- [getFileName、getFileNameNoExtension --> 获取文件名](#getFileName、getFileNameNoExtension)
+- [getFileExtension --> 获取文件后缀](#getFileExtension)
 
 ## getFileByPath
 &emsp;&emsp;把文件路径转换为文件，文件路径为空则返回空。
@@ -46,8 +48,8 @@ fun isExists(file: File?): Boolean
 &emsp;&emsp;修改文件夹或者文件夹名称，修改成功则返回 true。</br>
 &emsp;&emsp;**注：修改文件名需要带文件后缀**
 ```
-fun isExists(filePath: String?): Boolean
-fun isExists(file: File?): Boolean
+fun rename(filePath: String?, newName: String): Boolean
+fun rename(file: File?, newName: String): Boolean
 ```
 
 ## isDir
@@ -138,13 +140,6 @@ fun delete(file: File?): Boolean
 ```
 fun deleteDir(dirPath: String?): Boolean
 fun deleteDir(dir: File?): Boolean
-```
-
-## deleteFile
-&emsp;&emsp;删除文件，删除成功则返回 true。
-```
-fun deleteFile(dirPath: String?): Boolean
-fun deleteFile(dir: File?): Boolean
 ```
 
 ## deleteFile
@@ -251,7 +246,33 @@ fun getFileLength(file: File?): Long
 fun getFileMD5ToString(filePath: String?): String
 fun getFileMD5ToString(file: File?): String
 
-//返回文件大小，获取失败返回 -1
-fun getFileLength(filePath: String?): Long
-fun getFileLength(file: File?): Long
+//返回文件大小，获取失败返回 null
+fun getFileMD5(filePath: String?): ByteArray?
+fun getFileMD5(file: File?): ByteArray?
+```
+
+## getDirPath
+&emsp;&emsp;获取文件夹路径，获取失败则返回空字符串。
+```
+fun getDirPath(file: File?): String
+fun getDirPath(filePath: String?): String
+```
+
+## getFileName、getFileNameNoExtension
+&emsp;&emsp;获取文件名，获取失败则返回空字符串。
+```
+//带文件后缀
+fun getFileName(file: File?): String
+fun getFileName(filePath: String?): String
+
+//不带文件后缀
+fun getFileNameNoExtension(file: File?): String
+fun getFileNameNoExtension(filePath: String?): String
+```
+
+## getFileExtension
+&emsp;&emsp;获取文件后缀，获取失败则返回空字符串。
+```
+fun getFileExtension(file: File?): String
+fun getFileExtension(filePath: String?): String
 ```
