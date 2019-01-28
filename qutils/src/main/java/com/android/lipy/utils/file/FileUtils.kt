@@ -10,6 +10,9 @@ import java.security.NoSuchAlgorithmException
 import java.util.*
 import kotlin.experimental.and
 
+/**
+ * utils about file
+ */
 @Suppress("UNUSED", "MemberVisibilityCanBePrivate")
 object FileUtils {
     private const val TAG = "Utils_FileUtil"
