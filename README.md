@@ -10,4 +10,4 @@ Android开发常用Utils，包含文件、逻辑等相关工具。
   - [data](https://github.com/lipyhui/QUtils/tree/master/doc/markdown/safe/data)
     - [EncryptUtils](https://github.com/lipyhui/QUtils/tree/master/doc/markdown/safe/data/EncryptUtils.md)
 - [plug](https://github.com/lipyhui/QUtils/tree/master/doc/markdown/plug)
-    - [EncryptUtils](https://github.com/lipyhui/QUtils/tree/master/doc/markdown/plug/ResourceUtils.md)
+    - [ResourceUtils](https://github.com/lipyhui/QUtils/tree/master/doc/markdown/plug/ResourceUtils.md)
