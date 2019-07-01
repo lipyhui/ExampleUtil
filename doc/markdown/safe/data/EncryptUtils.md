@@ -1,35 +1,35 @@
 # EncryptUtils
-&emsp;&emsp;EncryptUtils是一个数据加密界面的工具类。使用方式为EncryptUtils.getInstance().xxx(x)方式;
+&emsp;&emsp;EncryptUtils是一个数据加密界面的工具类。使用方式为EncryptUtils.getInstance().xxx(x)方式。
 
 # 目录
-- [encryptMD5ToString --> 判断所有条件不为空](#encryptMD5ToString)
-- [encryptMD5 --> 判断是否有条件为空](#encryptMD5)
-- [encryptMD5File2String --> 判断所有条件为真](#encryptMD5File2String)
-- [encryptMD5File --> 判断是否有条件为真](#encryptMD5File)
-- [encryptSHAToString --> 判断所有条件为假](#encryptSHAToString)
-- [encryptSHA --> 判断是否有条件为假](#encryptSHA)
-- [encryptHmacMD5ToString --> 判断是否有条件为假](#encryptHmacMD5ToString)
-- [encryptHmacMD5 --> 判断是否有条件为假](#encryptHmacMD5)
-- [encryptHmacSHAToString --> 判断是否有条件为假](#encryptHmacSHAToString)
-- [encryptHmacSHA --> 判断是否有条件为假](#encryptHmacSHA)
-- [encryptDES2String --> 判断是否有条件为假](#encryptDES2String)
-- [encryptDES --> 判断是否有条件为假](#encryptDES)
-- [decryptHexStringDES --> 判断是否有条件为假](#decryptHexStringDES)
-- [decryptDES --> 判断是否有条件为假](#decryptDES)
-- [encrypt3DES2HexString --> 判断是否有条件为假](#encrypt3DES2HexString)
-- [encrypt3DES --> 判断是否有条件为假](#encrypt3DES)
-- [decryptHexString3DES --> 判断是否有条件为假](#decryptHexString3DES)
-- [decrypt3DES --> 判断是否有条件为假](#decrypt3DES)
-- [encryptAES2HexString --> 判断是否有条件为假](#encryptAES2HexString)
-- [encryptAES --> 判断是否有条件为假](#encryptAES)
-- [decryptHexStringAES --> 判断是否有条件为假](#decryptHexStringAES)
-- [decryptAES --> 判断是否有条件为假](#decryptAES)
-- [encryptRSA2HexString --> 判断是否有条件为假](#encryptRSA2HexString)
-- [encryptRSA --> 判断是否有条件为假](#encryptRSA)
-- [decryptHexStringRSA --> 判断是否有条件为假](#decryptHexStringRSA)
-- [decryptRSA --> 判断是否有条件为假](#decryptRSA)
-- [base64Encode --> 判断是否有条件为假](#base64Encode)
-- [base64Decode --> 判断是否有条件为假](#base64Decode)
+- [encryptMD5ToString --> MD5加密](#encryptMD5ToString)
+- [encryptMD5 --> MD5加密](#encryptMD5)
+- [encryptMD5File2String --> MD5加密](#encryptMD5File2String)
+- [encryptMD5File --> MD5加密](#encryptMD5File)
+- [encryptSHAToString --> SHA加密](#encryptSHAToString)
+- [encryptSHA --> SHA加密](#encryptSHA)
+- [encryptHmacMD5ToString --> HmacMD5加密](#encryptHmacMD5ToString)
+- [encryptHmacMD5 --> HmacMD5加密](#encryptHmacMD5)
+- [encryptHmacSHAToString --> HmacSHA加密](#encryptHmacSHAToString)
+- [encryptHmacSHA --> HmacSHA加密](#encryptHmacSHA)
+- [encryptDES2String --> DES加密](#encryptDES2String)
+- [encryptDES --> DES加密](#encryptDES)
+- [decryptHexStringDES --> hex数据DES解密](#decryptHexStringDES)
+- [decryptDES --> DES解密](#decryptDES)
+- [encrypt3DES2HexString --> 3DES加密](#encrypt3DES2HexString)
+- [encrypt3DES --> 3DES加密](#encrypt3DES)
+- [decryptHexString3DES --> hex数据3DES解密](#decryptHexString3DES)
+- [decrypt3DES --> 3DES解密](#decrypt3DES)
+- [encryptAES2HexString --> AES加密并返回hex字符串](#encryptAES2HexString)
+- [encryptAES --> AES加密](#encryptAES)
+- [decryptHexStringAES --> hex数据AES解密](#decryptHexStringAES)
+- [decryptAES --> AES解密](#decryptAES)
+- [encryptRSA2HexString --> RSA加密并返回hex字符串](#encryptRSA2HexString)
+- [encryptRSA -->  RSA加密](#encryptRSA)
+- [decryptHexStringRSA --> hex数据RSA解密](#decryptHexStringRSA)
+- [decryptRSA --> RSA解密](#decryptRSA)
+- [base64Encode --> base64加密](#base64Encode)
+- [base64Decode --> base64解密](#base64Decode)
 
 ## encryptMD5ToString
 &emsp;&emsp;进行MD5加密，返回加密的字符串。
@@ -110,13 +110,13 @@ private byte[] encryptDES(byte[] data, byte[] key, String transformation, byte[]
 ```
 
 ## decryptHexStringDES
-&emsp;&emsp;进行DES加密（目前有问题，暂未开放），返回加密的字节数组。
+&emsp;&emsp;hex数据进行DES解密（目前有问题，暂未开放），返回解密的字节数组。
 ```
 private byte[] decryptHexStringDES(String data, byte[] key, String transformation, byte[] iv)
 ```
 
 ## decryptDES
-&emsp;&emsp;进行DES加密（目前有问题，暂未开放），返回加密的字节数组。
+&emsp;&emsp;进行DES解密（目前有问题，暂未开放），返回解密的字节数组。
 ```
 private byte[] decryptDES(byte[] data, byte[] key, String transformation, byte[] iv)
 ```
@@ -134,13 +134,13 @@ private byte[] encrypt3DES(byte[] data, byte[] key, String transformation, byte[
 ```
 
 ## decryptHexString3DES
-&emsp;&emsp;进行3DES加密（目前有问题，暂未开放），返回加密的字节数组。
+&emsp;&emsp;hex数据进行3DES解密（目前有问题，暂未开放），返回解密的字节数组。
 ```
 private byte[] decryptHexString3DES(String data, byte[] key, String transformation, byte[] iv)
 ```
 
 ## decrypt3DES
-&emsp;&emsp;进行3DES加密（目前有问题，暂未开放），返回加密的字节数组。
+&emsp;&emsp;进行3DES加密（目前有问题，暂未开放），返回解密的字节数组。
 ```
 private byte[] decrypt3DES(byte[] data, byte[] key, String transformation, byte[] iv)
 ```
@@ -158,13 +158,13 @@ public byte[] encryptAES(byte[] data, byte[] key, String transformation, byte[] 
 ```
 
 ## decryptHexStringAES
-&emsp;&emsp;进行AES解密，返回加密的字符串。
+&emsp;&emsp;hex数据进行AES解密，返回解密的字符串。
 ```
 public byte[] decryptHexStringAES(String data, byte[] key, String transformation, byte[] iv)
 ```
 
 ## decryptAES
-&emsp;&emsp;进行AES加密，返回加密的字节数组。
+&emsp;&emsp;进行AES解密，返回解密的字节数组。
 ```
 private byte[] decryptDES(byte[] data, byte[] key, String transformation, byte[] iv)
 ```
@@ -182,13 +182,13 @@ public byte[] encryptRSA(byte[] data, byte[] key, boolean isPublicKey, String tr
 ```
 
 ## decryptHexStringRSA
-&emsp;&emsp;对 hex 数据进行RSA解密，返回加密的字符串。
+&emsp;&emsp;hex 数据进行RSA解密，返回解密的字符串。
 ```
 public byte[] decryptHexStringRSA(String data, byte[] key, boolean isPublicKey, String transformation)
 ```
 
 ## decryptRSA
-&emsp;&emsp;进行RSA解密，返回加密的字节数组。
+&emsp;&emsp;进行RSA解密，返回解密的字节数组。
 ```
 public byte[] decryptRSA(byte[] data, byte[] key, boolean isPublicKey, String transformation)
 ```
@@ -200,7 +200,7 @@ public byte[] base64Encode(byte[] data)
 ```
 
 ## base64Decode
-&emsp;&emsp;进行Base64解密，返回加密的字节数组。
+&emsp;&emsp;进行Base64解密，返回解密的字节数组。
 ```
 public byte[] base64Decode(byte[] data)
 ```
