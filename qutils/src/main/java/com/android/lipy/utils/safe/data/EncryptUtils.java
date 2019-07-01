@@ -205,7 +205,7 @@ public class EncryptUtils {
      *                       buffer are copied to protect against subsequent modification.
      * @return the hex string of DES encryption
      */
-    public String encryptDES2String(byte[] data, byte[] key, String transformation, byte[] iv) {
+    private String encryptDES2String(byte[] data, byte[] key, String transformation, byte[] iv) {
         return EncryptInternal.INSTANCE.bytes2HexString(encryptDES(data, key, transformation, iv));
     }
 
@@ -219,7 +219,7 @@ public class EncryptUtils {
      *                       buffer are copied to protect against subsequent modification.
      * @return the bytes of DES encryption
      */
-    public byte[] encryptDES(byte[] data, byte[] key, String transformation, byte[] iv) {
+    private byte[] encryptDES(byte[] data, byte[] key, String transformation, byte[] iv) {
         return EncryptInternal.INSTANCE.symmetricTemplate(data, key, "DES", transformation, iv, true);
     }
 
@@ -233,7 +233,7 @@ public class EncryptUtils {
      *                       buffer are copied to protect against subsequent modification.
      * @return the bytes of DES decryption for hex string
      */
-    public byte[] decryptHexStringDES(String data, byte[] key, String transformation, byte[] iv) {
+    private byte[] decryptHexStringDES(String data, byte[] key, String transformation, byte[] iv) {
         return decryptDES(EncryptInternal.INSTANCE.hexString2Bytes(data), key, transformation, iv);
     }
 
@@ -247,7 +247,7 @@ public class EncryptUtils {
      *                       buffer are copied to protect against subsequent modification.
      * @return the bytes of DES decryption
      */
-    public byte[] decryptDES(byte[] data, byte[] key, String transformation, byte[] iv) {
+    private byte[] decryptDES(byte[] data, byte[] key, String transformation, byte[] iv) {
         return EncryptInternal.INSTANCE.symmetricTemplate(data, key, "DES", transformation, iv, false);
     }
 
@@ -262,7 +262,7 @@ public class EncryptUtils {
      *                       buffer are copied to protect against subsequent modification.
      * @return the bytes of DES decryption for hex string
      */
-    public String encrypt3DES2HexString(byte[] data, byte[] key, String transformation, byte[] iv) {
+    private String encrypt3DES2HexString(byte[] data, byte[] key, String transformation, byte[] iv) {
         return EncryptInternal.INSTANCE.bytes2HexString(encrypt3DES(data, key, transformation, iv));
     }
 
@@ -276,7 +276,7 @@ public class EncryptUtils {
      *                       buffer are copied to protect against subsequent modification.
      * @return the bytes of 3DES encryption
      */
-    public byte[] encrypt3DES(byte[] data, byte[] key, String transformation, byte[] iv) {
+    private byte[] encrypt3DES(byte[] data, byte[] key, String transformation, byte[] iv) {
         return EncryptInternal.INSTANCE.symmetricTemplate(data, key, "DESede", transformation, iv, true);
     }
 
@@ -290,7 +290,7 @@ public class EncryptUtils {
      *                       buffer are copied to protect against subsequent modification.
      * @return the bytes of 3DES decryption for hex string
      */
-    public byte[] decryptHexString3DES(String data, byte[] key, String transformation, byte[] iv) {
+    private byte[] decryptHexString3DES(String data, byte[] key, String transformation, byte[] iv) {
         return decrypt3DES(EncryptInternal.INSTANCE.hexString2Bytes(data), key, transformation, iv);
     }
 
@@ -304,7 +304,7 @@ public class EncryptUtils {
      *                       buffer are copied to protect against subsequent modification.
      * @return the bytes of 3DES decryption
      */
-    public byte[] decrypt3DES(byte[] data, byte[] key, String transformation, byte[] iv) {
+    private byte[] decrypt3DES(byte[] data, byte[] key, String transformation, byte[] iv) {
         return EncryptInternal.INSTANCE.symmetricTemplate(data, key, "DESede", transformation, iv, false);
     }
 

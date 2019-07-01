@@ -35,6 +35,6 @@ public class JavaTest {
         ELog.INSTANCE.e(">>>>>>>>>>>>>> Hmac SHA 256 %s", EncryptUtils.getInstance().encryptHmacSHAToString("sssssssssss", "key1", EnumConstant.HMAC_SHA256));
 //        ELog.INSTANCE.e(">>>>>>>>>>>>>> Hmac SHA 384 %s", EncryptUtils.getInstance().encryptHmacSHAToString("sssssssssss", "key1", EnumConstant.HMAC_SHA384));
         ELog.INSTANCE.e(">>>>>>>>>>>>>> Hmac SHA 512 %s", EncryptUtils.getInstance().encryptHmacSHAToString("sssssssssss", "key1", EnumConstant.HMAC_SHA512));
-        ELog.INSTANCE.e(">>>>>>>>>>>>>> DES %s", EncryptUtils.getInstance().encryptDES2String("sssssssssss".getBytes(),new byte[]{0, 1, 2, 3, 4, 5, 6, 7, 8}, "desede/CBC/PKCS5Padding", "".getBytes()));
+//        ELog.INSTANCE.e(">>>>>>>>>>>>>> DES %s", EncryptUtils.getInstance().encryptDES2String("sssssssssss".getBytes(),new byte[]{0, 1, 2, 3, 4, 5, 6, 7, 8}, "desede/CBC/PKCS5Padding", "".getBytes()));
     }
 }
