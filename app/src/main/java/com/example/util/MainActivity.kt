@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         conditionalUtilTest()
         fileUtilTest()
         JavaTest.encryptUtilsTest()
+//        JavaTest.ResourceUtilsTest(this);
     }
 
     /**
